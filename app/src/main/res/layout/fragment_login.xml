@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorPrimary"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="516dp"
+            android:layout_height="264dp"
+            android:layout_gravity="center"
+            android:src="@mipmap/logoaai_foreground" />
+
+        <EditText
+            android:id="@+id/login1"
+            android:textColor="@color/colorPrimaryDark"
+            android:outlineSpotShadowColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Login ID"
+            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:layout_margin="20dp"
+            android:padding="10dp"
+            android:selectAllOnFocus="false"
+            android:singleLine="true"></EditText>
+
+        <EditText
+            android:layout_margin="20dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:outlineSpotShadowColor="@color/colorPrimaryDark"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:id="@+id/pass1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:selectAllOnFocus="false"
+            android:singleLine="true"></EditText>
+
+        <Button
+            android:id="@+id/btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="100dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="LOGIN"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorPrimary"
+            android:textIsSelectable="false"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+    </LinearLayout>
+</LinearLayout>
