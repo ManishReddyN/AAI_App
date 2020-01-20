@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 /**
@@ -43,6 +44,14 @@ public class LoginFragment extends Fragment {
         loginbt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int c=1;
+                String usename=lid.getText().toString();
+                String password=pwd.getText().toString();
+                String type="login";
+                BackgroundWorker backgroundWorker=new BackgroundWorker(getActivity());
+                backgroundWorker.execute(type,usename,password);
+                c=backgroundWorker.log_stat;
+                if(c==1)
                 launchActivity();
 
             }
