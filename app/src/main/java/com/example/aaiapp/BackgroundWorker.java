@@ -1,5 +1,6 @@
 package com.example.aaiapp;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -19,14 +20,13 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
-    public int log_stat;
-    Context context;
-    AlertDialog alertDialog;
-    Context context1;
+
+    @SuppressLint("StaticFieldLeak")
+    private Context context;
+    private AlertDialog alertDialog;
     BackgroundWorker(Context ctx)
     {
         context=ctx;
-        context1 = ctx.getApplicationContext();
     }
 
     @Override
@@ -52,14 +52,13 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 InputStream inputStream = httpsURLConnection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.ISO_8859_1));
                 String result="";
-                String line="";
+                String line;
                 while((line=bufferedReader.readLine())!=null)
                 {
                     System.out.println(line);
-                    result+=line;
+                    result = result.concat(line);
 
                 }
-                System.out.println(line);
                 bufferedReader.close();
                 inputStream.close();
                 httpsURLConnection.disconnect();
@@ -88,7 +87,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         alertDialog.setMessage(result);
         System.out.println(result);
         if (result.equals("login success")) {
-            Intent intent = new Intent(context, Main2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Intent intent = new Intent(context, Main2Activity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(intent);
         }
         System.out.println(result);

@@ -1,32 +1,20 @@
 package com.example.aaiapp;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link LoginFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link LoginFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class LoginFragment extends Fragment {
 
-    EditText lid,pwd;
-    Button loginbt;
+    private EditText lid, pwd;
+    private Button loginbt;
     public LoginFragment() {
         // Required empty public constructor
     }
@@ -41,27 +29,16 @@ public class LoginFragment extends Fragment {
         lid=v1.findViewById(R.id.login1);
         pwd=v1.findViewById(R.id.pass1);
         loginbt=v1.findViewById(R.id.btn1);
-        loginbt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int c=1;
-                String usename=lid.getText().toString();
-                String password=pwd.getText().toString();
-                String type="login";
-                BackgroundWorker backgroundWorker=new BackgroundWorker(getActivity());
-                backgroundWorker.execute(type,usename,password);
-                c=backgroundWorker.log_stat;
-                if(c==1)
-                launchActivity();
+        loginbt.setOnClickListener(v -> {
+            int c = 1;
+            String usename = lid.getText().toString();
+            String password = pwd.getText().toString();
+            String type = "login";
+            BackgroundWorker backgroundWorker = new BackgroundWorker(getActivity());
+            backgroundWorker.execute(type, usename, password);
 
-            }
         });
         return v1;
-    }
-    public void launchActivity()
-    {
-        Intent intent=new Intent(getActivity(), Main2Activity.class);
-        startActivity(intent);
     }
 
 }
