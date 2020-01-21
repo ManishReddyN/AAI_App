@@ -1,11 +1,10 @@
 package com.example.aaiapp;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
-
-import android.os.Bundle;
 
 
 
@@ -30,5 +29,6 @@ public class MainActivity extends AppCompatActivity{
         fragmentTransaction.add(R.id.frame1,fragment);
         fragmentTransaction.commit();
     }
+
 
 }
