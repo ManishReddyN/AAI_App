@@ -31,11 +31,11 @@ public class LoginFragment extends Fragment {
         loginbt=v1.findViewById(R.id.btn1);
         loginbt.setOnClickListener(v -> {
             int c = 1;
-            String usename = lid.getText().toString();
+            String username = lid.getText().toString();
             String password = pwd.getText().toString();
             String type = "login";
             BackgroundWorker backgroundWorker = new BackgroundWorker(getActivity());
-            backgroundWorker.execute(type, usename, password);
+            backgroundWorker.execute(type, username, password);
 
         });
         return v1;

@@ -1,11 +1,11 @@
 package com.example.aaiapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.Manifest;
 import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.zxing.Result;
 import com.karumi.dexter.Dexter;
@@ -62,6 +62,7 @@ public class InfoActivity extends AppCompatActivity implements ZXingScannerView.
     @Override
     public void handleResult(Result rawResult) {
 
+        id = rawResult.getText();
         infotxt.setText(rawResult.getText());
     }
 }
