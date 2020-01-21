@@ -36,7 +36,6 @@ public class LoginFragment extends Fragment {
             String type = "login";
             BackgroundWorker backgroundWorker = new BackgroundWorker(getActivity());
             backgroundWorker.execute(type, username, password);
-
         });
         return v1;
     }

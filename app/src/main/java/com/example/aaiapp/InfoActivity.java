@@ -2,6 +2,7 @@ package com.example.aaiapp;
 
 import android.Manifest;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,8 @@ import me.dm7.barcodescanner.zxing.ZXingScannerView;
 public class InfoActivity extends AppCompatActivity implements ZXingScannerView.ResultHandler {
     private ZXingScannerView scannerView;
     private TextView infotxt;
-    private String id;
+    String id;
+    private Button details;
 
 
     @Override
@@ -29,6 +31,7 @@ public class InfoActivity extends AppCompatActivity implements ZXingScannerView.
         setContentView(R.layout.activity_info);
         scannerView=findViewById(R.id.scaninfo);
         infotxt=findViewById(R.id.textresinfo);
+        details = findViewById(R.id.seeinfobtn);
 
         Dexter.withActivity(this)
                 .withPermission(Manifest.permission.CAMERA)
@@ -64,5 +67,13 @@ public class InfoActivity extends AppCompatActivity implements ZXingScannerView.
 
         id = rawResult.getText();
         infotxt.setText(rawResult.getText());
+        if (id != null) {
+            details.setOnClickListener(v -> {
+
+                String type = "info";
+                GetDetails getDetails = new GetDetails(this);
+                getDetails.execute(id, type);
+            });
+        }
     }
 }
