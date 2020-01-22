@@ -36,7 +36,7 @@ public class GetDetails extends AsyncTask<String, Void, String> {
     protected String doInBackground(String... params) {
 
         String type=params[1];
-        String details_url = "http://192.168.0.6/details.php";
+        String details_url = "http://192.168.1.47/details.php";
         if(type.equals("info")){
             try {
                 String id=params[0];
@@ -48,7 +48,8 @@ public class GetDetails extends AsyncTask<String, Void, String> {
                 httpsURLConnection.setDoInput(true);
                 OutputStream outputStream = httpsURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, StandardCharsets.UTF_8));
-                String post_data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8") ;                bufferedWriter.write(post_data);
+                String post_data = URLEncoder.encode("id", "UTF-8") + "=" + URLEncoder.encode(id, "UTF-8");
+                bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
                 outputStream.close();

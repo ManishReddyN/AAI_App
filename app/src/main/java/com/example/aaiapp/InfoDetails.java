@@ -1,21 +1,17 @@
 package com.example.aaiapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.StringTokenizer;
 
 public class InfoDetails extends AppCompatActivity {
     String message;
-    String[] details=new String[4];
+    String[] details = new String[40];
     private TextView name,mobile,roll,id;
 
-    InfoDetails(String msg)
-    {
-        message=msg;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
