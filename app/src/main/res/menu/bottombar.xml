@@ -18,5 +18,10 @@
         app:showAsAction="always"
         android:title="Update"
         />
+    <item
+        android:id="@+id/account"
+        android:icon="@drawable/account"
+        android:title="Account"
+        app:showAsAction="always" />
 
 </menu>
